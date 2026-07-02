@@ -15,13 +15,25 @@ def get_items():
     filtered_items = items
 
     if name_filter:
-        filtered_items = [item for item in filtered_items if name_filter.lower() in item["name"].lower()]
+        temp_items = []
+        for item in filtered_items:
+            if name_filter.lower() in item["name"].lower():
+                temp_items.append(item)
+        filtered_items = temp_items
 
     if id_filter is not None:
-        filtered_items = [item for item in filtered_items if item["id"] == id_filter]
+        temp_items = []
+        for item in filtered_items:
+            if item["id"] == id_filter:
+                temp_items.append(item)
+        filtered_items = temp_items
 
     if price_filter is not None:
-        filtered_items = [item for item in filtered_items if item["price"] == price_filter]
+        temp_items = []
+        for item in filtered_items:
+            if item["price"] == price_filter:
+                temp_items.append(item)
+        filtered_items = temp_items
 
     return jsonify(filtered_items), HTTPStatus.OK
 
