@@ -11,11 +11,11 @@ def main():
         try:
             # Opening the file
             file = open(filename, "a")
-            new_task = input("What do you need to do? ")
+            new_task = input("What is the task?")
             
             # Writing to the file
             file.write(new_task + "\n")
-            print("Task saved successfully!")
+            print("Task saved successfully")
             
         except IOError as e:
             # Exception handling
@@ -33,9 +33,9 @@ def main():
             
             tasks = file.readlines()
             if len(tasks) == 0:
-                print("Your to-do list is empty.")
+                print("The To-Do list is empty.")
             else:
-                print("\n--- Your Tasks ---")
+                print("\n Your Tasks ")
                 for index, task in enumerate(tasks):
                     print(f"{index + 1}. {task.strip()}")
                     
